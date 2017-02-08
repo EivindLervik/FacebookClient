@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="no.hvl.dat153.facebookclient">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +16,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".GraphApi"></activity>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="1563828853657426"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1563828853657426"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"/>
     </application>
 
 </manifest>
