@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FacebookClient</string>
+    <string name="information">Information</string>
+    <string name="likes">Likes</string>
 </resources>
