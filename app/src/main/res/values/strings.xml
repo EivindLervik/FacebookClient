@@ -1,5 +1,11 @@
 <resources>
-    <string name="app_name">FacebookClient</string>
+    <string name="appID">1563828853657426</string>
     <string name="information">Information</string>
     <string name="likes">Likes</string>
+    <string name="app_name">FacebookClient</string>
+    <string name="titleString">Facebook Client</string>
+    <string name="graph">Graph API</string>
+    <string name="post">Post Something</string>
+    <string name="share">Share This</string>
+    <string name="like">Like this</string>
 </resources>
