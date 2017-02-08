@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".GraphApi" />
         <activity android:name=".ShareThis"></activity>
+        <activity android:name=".Like"></activity>
     </application>
 
 </manifest>
