@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GraphApi"></activity>
+        <activity android:name=".GraphApi" />
+        <activity android:name=".Like"></activity>
     </application>
 
 </manifest>
