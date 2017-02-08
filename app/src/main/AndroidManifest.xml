@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".GraphApi" />
-        <activity android:name=".Like"></activity>
+        <activity android:name=".ShareThis"></activity>
     </application>
 
 </manifest>

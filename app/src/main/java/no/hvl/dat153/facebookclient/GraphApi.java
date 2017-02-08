@@ -10,14 +10,17 @@ public class GraphApi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graph_api);
-        //TODO - Make a request. Display results
+
 
     }
 
     public void showLikes(View view){
-
+        //TODO - Make a request. Display results
     }
     public void showInformation(View view){
+        //TODO - Make a request. Display results
+    }
+    public void requestHandler(){
 
     }
 }
