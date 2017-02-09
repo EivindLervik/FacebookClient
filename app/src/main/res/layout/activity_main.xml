@@ -8,7 +8,15 @@
     android:orientation="vertical"
     tools:context="no.hvl.dat153.facebookclient.MainActivity"
     android:weightSum="1">
-
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_margin="4dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"/>
     <TextView
         android:text="@string/titleString"
         android:layout_width="match_parent"
