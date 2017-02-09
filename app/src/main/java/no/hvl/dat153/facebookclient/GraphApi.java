@@ -23,7 +23,7 @@ public class GraphApi extends AppCompatActivity {
     }
 
     public void showLikes(View view){
-        //TODO - Make a request. Display results
+        requestHandlerLikes();
     }
     public void showInformation(View view){
         //TODO - Make a request. Display results
