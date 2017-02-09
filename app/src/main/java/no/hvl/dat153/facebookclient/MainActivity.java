@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void shareClick(View view){
-        // TODO Add intent
+        Intent intent = new Intent(this, ShareThis.class);
+        startActivity(intent);
     }
 
     public void likeClick(View view){
