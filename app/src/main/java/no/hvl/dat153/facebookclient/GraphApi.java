@@ -54,7 +54,7 @@ public class GraphApi extends AppCompatActivity {
                     }
                 });
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "likes");
+        parameters.putString("fields", "friends");
         request.setParameters(parameters);
         request.executeAsync();
     }
