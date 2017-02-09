@@ -23,6 +23,11 @@
         <activity android:name=".ShareThis"></activity>
         <activity android:name=".Like"></activity>
 
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/appID"/>
 
         <provider android:authorities="com.facebook.app.FacebookContentProvider1563828853657426"
