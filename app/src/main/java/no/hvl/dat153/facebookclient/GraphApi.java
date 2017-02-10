@@ -44,8 +44,8 @@ public class GraphApi extends AppCompatActivity {
                             JSONObject object,
                             GraphResponse response) {
                         try {
-                            JSONArray likes = object.getJSONArray("data");
-                            updateListCallback(likes);
+                            JSONObject gay = object;
+                            updateListCallback(object);
                         }
                         catch (Exception e){
                             Toast.makeText(GraphApi.this, "Could not find likes", Toast.LENGTH_LONG).show();
@@ -76,18 +76,25 @@ public class GraphApi extends AppCompatActivity {
         request.executeAsync();
     }
 
-    public void updateListCallback(JSONArray likes){
+    public void updateListCallback(JSONObject object){
         ListView lw = (ListView) findViewById(R.id.item_list);
-        ArrayList<String> likesList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<String>();
+
+       // {"friends":{"data":[],"summary":{"total_count":718}},"id":"10154893173101760"}
         try {
-            for (int i = 0; i < likes.length(); i++) {
-                likesList.add(likes.getJSONObject(i).getString("name"));
+
+            for(int i = 0; i < object.names().length(); i++){
+
+                arrayList.add(object.names().getString(i));
+
             }
         } catch (JSONException e){
+            Toast.makeText(GraphApi.this, "oh darn", Toast.LENGTH_LONG).show();
             e.printStackTrace();
         }
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, likesList);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
+        lw.setAdapter(adapter);
     }
 
 }
