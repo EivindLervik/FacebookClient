@@ -29,12 +29,10 @@ public class GraphApi extends AppCompatActivity {
 
     }
 
-    public void showLikes(View view){
+    public void showInformation(View view){
         requestHandlerLikes();
     }
-    public void showInformation(View view){
-        //TODO - Make a request. Display results
-    }
+
     public void requestHandlerLikes(){
         GraphRequest request = GraphRequest.newMeRequest(
                 AccessToken.getCurrentAccessToken(),
@@ -44,7 +42,7 @@ public class GraphApi extends AppCompatActivity {
                             JSONObject object,
                             GraphResponse response) {
                         try {
-                            JSONObject gay = object;
+
                             updateListCallback(object);
                         }
                         catch (Exception e){
@@ -54,27 +52,11 @@ public class GraphApi extends AppCompatActivity {
                     }
                 });
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "friends");
+        parameters.putString("fields", "friends, name, id, gender");
         request.setParameters(parameters);
         request.executeAsync();
     }
-    public void requestHandlerInformation(){
-        GraphRequest request = GraphRequest.newMeRequest(
-                AccessToken.getCurrentAccessToken(),
-                new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(
-                            JSONObject object,
-                            GraphResponse response) {
 
-                        //TODO - add items to view
-                    }
-                });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,link");
-        request.setParameters(parameters);
-        request.executeAsync();
-    }
 
     public void updateListCallback(JSONObject object){
         ListView lw = (ListView) findViewById(R.id.item_list);
@@ -82,12 +64,12 @@ public class GraphApi extends AppCompatActivity {
 
        // {"friends":{"data":[],"summary":{"total_count":718}},"id":"10154893173101760"}
         try {
-
-            for(int i = 0; i < object.names().length(); i++){
-
-                arrayList.add(object.names().getString(i));
-
-            }
+            String totalFriends = "friends: " + object.getJSONObject("friends").getJSONObject("summary").getString("total_count");
+            String name = "name: " + object.getString("name");
+            String gender = "gender: " + object.getString("gender");
+            arrayList.add(totalFriends);
+            arrayList.add(name);
+            arrayList.add(gender);
         } catch (JSONException e){
             Toast.makeText(GraphApi.this, "oh darn", Toast.LENGTH_LONG).show();
             e.printStackTrace();
