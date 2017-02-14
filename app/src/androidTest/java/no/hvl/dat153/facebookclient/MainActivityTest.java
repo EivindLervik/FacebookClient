@@ -22,8 +22,7 @@ public class MainActivityTest {
     @Test
     public void testNavigateGraphApi(){
         onView(withId(R.id.graphAPI)).perform(click());
-        onView(withId(R.id.showLikesButton)).check(matches(isDisplayed()));
-        onView(withId(R.id.showInformationButton)).check(matches(isDisplayed()));
+        onView(withId(R.id.showInfoButton)).check(matches(isDisplayed()));
     }
 
 
