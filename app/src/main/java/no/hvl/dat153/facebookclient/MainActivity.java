@@ -40,10 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void postClick(View view){
         ShareLinkContent content = new ShareLinkContent.Builder()
-                .setContentTitle("Hello Facebook")
-                .setContentDescription(
-                        "The 'Hello Facebook' sample  showcases simple Facebook integration")
-                .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
                 .build();
         shareDialog.show(content);
     }
@@ -56,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
                 .build();
         shareDialog.show(content);
+
     }
 
     public void likeClick(View view){
