@@ -10,4 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="no.hvl.dat153.facebookclient.Like">
 
+    <com.facebook.share.widget.LikeView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/like_view">
+    </com.facebook.share.widget.LikeView>
+
 </RelativeLayout>
