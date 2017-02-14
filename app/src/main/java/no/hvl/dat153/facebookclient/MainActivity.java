@@ -1,20 +1,26 @@
 package no.hvl.dat153.facebookclient;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.facebook.login.LoginManager;
+import com.facebook.share.model.ShareHashtag;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ShareDialog shareDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        shareDialog = new ShareDialog(this);
         Button logout = (Button)findViewById(R.id.login_button);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +39,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void postClick(View view){
-        // TODO Add intent
+        ShareLinkContent content = new ShareLinkContent.Builder()
+                .setContentTitle("Hello Facebook")
+                .setContentDescription(
+                        "The 'Hello Facebook' sample  showcases simple Facebook integration")
+                .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
+                .build();
+        shareDialog.show(content);
     }
 
     public void shareClick(View view){
@@ -45,4 +57,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Like.class);
         startActivity(intent);
     }
+
 }
