@@ -23,7 +23,7 @@ public class Like extends AppCompatActivity {
         // Add values to the like-view
         LikeView likeView = (LikeView) findViewById(R.id.like_view);
         likeView.setObjectIdAndType(
-                "https://www.facebook.com/HiBinfo/?fref=ts",
+                "https://www.facebook.com/hvl.no/?fref=ts",
                 LikeView.ObjectType.PAGE);
     }
 }
