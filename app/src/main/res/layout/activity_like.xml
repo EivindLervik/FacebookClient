@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        tools:text="@string/like"
+        android:text="@string/like"
         android:textSize="36sp"
         android:textAlignment="center" />
 
