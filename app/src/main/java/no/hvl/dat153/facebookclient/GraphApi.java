@@ -56,7 +56,7 @@ public class GraphApi extends AppCompatActivity {
                     }
                 });
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "friends, name, id, gender, picture");
+        parameters.putString("fields", "friends, name, id, gender");
         request.setParameters(parameters);
         request.executeAsync();
     }
@@ -68,15 +68,23 @@ public class GraphApi extends AppCompatActivity {
 
        // {"friends":{"data":[],"summary":{"total_count":718}},"id":"10154893173101760"}
         try {
-            String totalFriends = "friends: " + object.getJSONObject("friends").getJSONObject("summary").getString("total_count");
+            String totalFriends = "total friends: " + object.getJSONObject("friends").getJSONObject("summary").getString("total_count");
             String name = "name: " + object.getString("name");
             String gender = "gender: " + object.getString("gender");
             ProfilePictureView profilePicture = (ProfilePictureView) findViewById(R.id.profilePicView);
             String profileId = object.getString("id");
             profilePicture.setProfileId(profileId);
+
+            JSONArray friends = object.getJSONObject("friends").getJSONArray("data");
             arrayList.add(totalFriends);
             arrayList.add(name);
             arrayList.add(gender);
+            arrayList.add("friends using this app: ");
+            for(int i = 0; i<friends.length(); i++){
+                String friend = friends.getJSONObject(i).getString("name");
+                arrayList.add(friend);
+            }
+
         } catch (JSONException e){
             Toast.makeText(GraphApi.this, "oh darn", Toast.LENGTH_LONG).show();
             e.printStackTrace();
