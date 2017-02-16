@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void shareClick(View view){
         ShareLinkContent content = new ShareLinkContent.Builder()
-                .setContentTitle("Hello Facebook")
+                .setContentTitle("This app is great!")
                 .setContentDescription(
-                        "The 'Hello Facebook' sample  showcases simple Facebook integration")
+                        "I just used this app that lets you see your facebook profile. Learn about facebook API today!")
                 .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
                 .build();
         shareDialog.show(content);

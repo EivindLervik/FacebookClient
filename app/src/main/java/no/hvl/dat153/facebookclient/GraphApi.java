@@ -49,8 +49,8 @@ public class GraphApi extends AppCompatActivity {
 
                             updateListCallback(object);
                         }
-                        catch (Exception e){
-                            Toast.makeText(GraphApi.this, "Could not find likes", Toast.LENGTH_LONG).show();
+                        catch (JSONException e){
+                            Toast.makeText(GraphApi.this, "Something went wrong", Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -62,12 +62,12 @@ public class GraphApi extends AppCompatActivity {
     }
 
 
-    public void updateListCallback(JSONObject object){
+    public void updateListCallback(JSONObject object)throws JSONException{
         ListView lw = (ListView) findViewById(R.id.item_list);
         ArrayList<String> arrayList = new ArrayList<String>();
 
        // {"friends":{"data":[],"summary":{"total_count":718}},"id":"10154893173101760"}
-        try {
+
             String totalFriends = "total friends: " + object.getJSONObject("friends").getJSONObject("summary").getString("total_count");
             String name = "name: " + object.getString("name");
             String gender = "gender: " + object.getString("gender");
@@ -85,23 +85,12 @@ public class GraphApi extends AppCompatActivity {
                 arrayList.add(friend);
             }
 
-        } catch (JSONException e){
-            Toast.makeText(GraphApi.this, "oh darn", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
+
 
         ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayList);
         lw.setAdapter(adapter);
     }
 
-    public static Drawable LoadImageFromWebOperations(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            Drawable d = Drawable.createFromStream(is, "src name");
-            return d;
-        } catch (Exception e) {
-            return null;
-        }
-    }
+
 
 }
