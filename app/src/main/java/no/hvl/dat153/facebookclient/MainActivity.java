@@ -45,8 +45,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void shareClick(View view){
-        Intent intent = new Intent(this, ShareThis.class);
-        startActivity(intent);
+        ShareLinkContent content = new ShareLinkContent.Builder()
+                .setContentTitle("Hello Facebook")
+                .setContentDescription(
+                        "The 'Hello Facebook' sample  showcases simple Facebook integration")
+                .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
+                .build();
+        shareDialog.show(content);
 
     }
 
