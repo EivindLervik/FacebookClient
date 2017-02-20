@@ -57,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onError(FacebookException e) {
             }
         };
-        loginButton.setReadPermissions("user_friends");
         loginButton.registerCallback(callbackManager, callback);
 
     }
@@ -88,9 +87,6 @@ public class LoginActivity extends AppCompatActivity {
     private void nextActivity(Profile profile){
         if(profile != null){
             Intent main = new Intent(LoginActivity.this, MainActivity.class);
-            main.putExtra("name", profile.getFirstName());
-            main.putExtra("surname", profile.getLastName());
-            main.putExtra("imageUrl", profile.getProfilePictureUri(200,200).toString());
             startActivity(main);
         }
     }
