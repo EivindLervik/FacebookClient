@@ -6,6 +6,6 @@
     <string name="titleString">Facebook Client</string>
     <string name="graph">Graph API</string>
     <string name="post">Post Something</string>
-    <string name="share">Share This</string>
+    <string name="share">Share HVL</string>
     <string name="like">Like HVL</string>
 </resources>

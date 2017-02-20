@@ -68,9 +68,9 @@ public class GraphApi extends AppCompatActivity {
 
        // {"friends":{"data":[],"summary":{"total_count":718}},"id":"10154893173101760"}
 
-            String totalFriends = "total friends: " + object.getJSONObject("friends").getJSONObject("summary").getString("total_count");
-            String name = "name: " + object.getString("name");
-            String gender = "gender: " + object.getString("gender");
+            String totalFriends = "Total friends: " + object.getJSONObject("friends").getJSONObject("summary").getString("total_count");
+            String name = "Name: " + object.getString("name");
+            String gender = "Gender: " + object.getString("gender");
             ProfilePictureView profilePicture = (ProfilePictureView) findViewById(R.id.profilePicView);
             String profileId = object.getString("id");
             profilePicture.setProfileId(profileId);
@@ -79,7 +79,7 @@ public class GraphApi extends AppCompatActivity {
             arrayList.add(totalFriends);
             arrayList.add(name);
             arrayList.add(gender);
-            arrayList.add("friends using this app: ");
+            arrayList.add("Friends using this app: ");
             for(int i = 0; i<friends.length(); i++){
                 String friend = friends.getJSONObject(i).getString("name");
                 arrayList.add(friend);
